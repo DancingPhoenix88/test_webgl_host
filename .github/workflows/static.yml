@@ -20,9 +20,7 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -38,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: '.'  # Upload entire repository
+          path: '.'  # Upload entire repo or specify your build output folder
 
       - name: Deploy to GitHub Pages
         id: deployment
