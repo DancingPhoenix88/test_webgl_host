@@ -41,3 +41,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
+
+      - name: Notify Discord on Success
+        if: ${{ success() }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"content":"✅ The GitHub Actions job has finished successfully!"}' \
+               https://discord.com/api/webhooks/1423724692606419055/3iRx2PIuqOj_LY_qPmIwy99Ao8X0oF4jJ_xtNDWr3A01a7dnwnvlftVCidxU73aY4UQC
