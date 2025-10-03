@@ -67,4 +67,4 @@ jobs:
           curl -H "Content-Type: application/json" \
                -X POST \
                -d "{\"content\":\"❌ Deployment failed!\nLast commit: ${GITHUB_MESSAGE}\"}" \
-               
+               $DISCORD_WEBHOOK_URL               
